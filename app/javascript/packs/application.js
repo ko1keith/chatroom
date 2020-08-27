@@ -17,6 +17,7 @@ require("semantic-ui-sass")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+
 // once turbolinks loads, enable dropdown
 $(document).on('turbolinks:load', function(){
     $('.ui.dropdown').dropdown();
@@ -26,4 +27,12 @@ $(document).on('turbolinks:load', function(){
         .closest('.message')
         .transition('fade');
     });
+    scroll_bottom();
 })
+
+// scroll to bottom every time this function is called
+scroll_bottom = function(){
+    if($('#messages').length > 0){
+        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    }
+}
