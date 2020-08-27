@@ -27,6 +27,7 @@ $(document).on('turbolinks:load', function(){
         .closest('.message')
         .transition('fade');
     });
+    submit_message();
     scroll_bottom();
 })
 
@@ -36,3 +37,13 @@ scroll_bottom = function(){
         $('#messages').scrollTop($('#messages')[0].scrollHeight);
     }
 }
+
+//if enter key is pressed, click submit button
+submit_message = function(){
+    $('#message_body').on('keydown', function(e){
+        if(e.keyCode == 13){
+            $('button').click();
+            e.target.value = "";
+        };
+    });
+};
